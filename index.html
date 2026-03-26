@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="portal" id="portal">
+
+        <div class="logo-area">
+            <img src="logo.6lrMPvRL.png" alt="SMIT">
+            <p>Student Portal</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button id="login-tab" class="active">Login</button>
+            <button id="create-tab">Create Password</button>
+        </div>
+
+        <!-- Card / Form -->
+        <div class="card">
+
+            <div class="form-area">
+
+                <h3 id="form-title">Login</h3>
+
+                <p class="desc" id="form-desc">
+                    Kindly provide the CNIC number and password used during SMIT course registration.
+                </p>
+
+                <label for="cnic-input">CNIC *</label>
+                <input type="number" id="cnic-input">
+                <p class="mes  display"></p>
+
+                <label for="dob-input" id="dob-label" style="display:none;">DOB *</label>
+                <input type="date" id="dob-input" style="display:none;">
+                <p class="mes  display"></p>
+
+                <label for="password-input">Password *</label>
+                <input type="password" id="password-input">
+                <p class="mes  display"></p>
+
+                <button class="login-btn" id="check-data">LOGIN</button>
+                <button class="login-btn" id="save-data" style="display:none;">submit</button>
+
+            </div>
+        </div>
+
+        <button class="teacher" id="teacher-btn">Login as teacher</button>
+
+    </div>
+
+   <div id="toast" class="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <span id="changeText">Login successfully</span>
+</div>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
