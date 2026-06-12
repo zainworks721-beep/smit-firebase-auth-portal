@@ -101,8 +101,8 @@ saveDataButton.addEventListener("click", function () {
 
   if (hasError) return
 
-    let exists = arr.find(u => u.Cnic === cnicInput.value)
-if(exists){ showpopup("CNIC already registered"); return }
+  let exists = arr.find(u => u.Cnic === cnicInput.value)
+  if (exists) { showpopup("CNIC already registered"); return }
 
   let obj = {
     Cnic: cnicInput.value,
@@ -114,7 +114,7 @@ if(exists){ showpopup("CNIC already registered"); return }
 
   arr.push(obj)
 
-   localStorage.setItem("user",JSON.stringify(arr)) 
+  localStorage.setItem("user", JSON.stringify(arr))
 
   console.log(arr)
 
