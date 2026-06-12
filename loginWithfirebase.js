@@ -22,9 +22,6 @@ form.addEventListener(onclick, () => {
             console.log("error -->", errorMessage);
             console.log("error code -->", errorCode);
 
-            if (errorCode == "auth/weak-password") {
-                console.log("Password must be 6 characters reqiured");
-            }
 
         });
 })
