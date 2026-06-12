@@ -10,7 +10,7 @@ const dobInput = document.getElementById('dob-input');
 
 const passwordInput = document.getElementById('password-input');
 const teacherBtn = document.getElementById('teacher-btn');
-const cnicInput = document.getElementById("cnic-input")
+const cnicInput = document.getElementById("emai-input")
 const saveDataButton = document.getElementById("save-data")
 const checkdataBtn = document.getElementById("check-data")
 const portal = document.getElementById("portal")
@@ -20,7 +20,7 @@ let inputs = [cnicInput, dobInput, passwordInput,]
 let alartMes = document.querySelectorAll(".mes")
 
 let errorText = [
-  "CNIC is required",
+  "Email is required",
   "Date of birth is required",
   "Password is required",
 
@@ -73,55 +73,6 @@ createTab.addEventListener("click", function () {
   checkdataBtn.style.display = "none"
 
 
-
-
-
-
-})
-
-let arr = JSON.parse(localStorage.getItem("user")) || []
-
-saveDataButton.addEventListener("click", function () {
-
-
-
-
-  let hasError = false
-
-  inputs.forEach(function (input, index) {
-
-    if (input.value.trim() === "") {
-      alartMes[index].innerText = errorText[index]
-      alartMes[index].classList.remove("display")
-      hasError = true
-    } else {
-      alartMes[index].classList.add("display")
-    }
-
-  })
-
-  if (hasError) return
-
-  let exists = arr.find(u => u.Cnic === cnicInput.value)
-  if (exists) { showpopup("CNIC already registered"); return }
-
-  let obj = {
-    Cnic: cnicInput.value,
-    password: passwordInput.value,
-    dob: dobInput.value
-  }
-
-
-
-  arr.push(obj)
-
-  localStorage.setItem("user", JSON.stringify(arr))
-
-  console.log(arr)
-
-  inputs.forEach(function (input) {
-    input.value = ""
-  })
 
 
 
@@ -194,7 +145,7 @@ function showpopup(mess) {
 
 
 
-
+localStorage.clear()
 
 
 
