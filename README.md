@@ -48,4 +48,4 @@ This project includes login, signup, form validation, and dashboard redirection 
 
 ## 🌐 Live Demo
 
-👉 https://your-live-link-here.com
+👉 https://zainworks721-beep.github.io/smit-firebase-auth-portal/index.html
