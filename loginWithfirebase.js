@@ -1,21 +1,25 @@
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged } from "./fireBaseConfig.js"
+
+
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "./fireBaseConfig.js"
 import { validateEmail, validatePassword, clearErrorOnInput, validateDOB } from "./validation.js"
 
-let allowRedirect = false;
+
+let isLoggingIn = false;
+
+
 
 onAuthStateChanged(auth, (user) => {
-    if (user && allowRedirect) {
-        window.location.replace("dashboard.html");
+    if (user) {
+        // Agar user pehle se logged in hai (aur usne abhi login/signup button NAHI dabaya)
+        if (!isLoggingIn) {
+            window.location.replace("dashboard.html");
+        }
     }
 });
 
 let btn = document.getElementById("save-data")
 
-
-
 btn.addEventListener("click", () => {
-
-
     const email = document.getElementById('email-input');
     const password = document.getElementById('password-input');
     const dob = document.getElementById("dob-input");
@@ -31,12 +35,8 @@ btn.addEventListener("click", () => {
         document.getElementById("dob-error").classList.remove("display");
         document.getElementById("password-error").innerText = passwordError
         document.getElementById("password-error").classList.remove("display")
-
         return
-
-
     }
-
 
     if (emailError) {
         document.getElementById("email-error").innerText = emailError
@@ -54,34 +54,24 @@ btn.addEventListener("click", () => {
         return
     }
 
+
+
     createUserWithEmailAndPassword(auth, email.value.trim(), password.value)
         .then((res) => {
-
             const user = res.user;
-
             if (user) {
-                showpopup("Account created!", `<i class="fa-solid fa-check"></i>`)
+                showpopup("Account created!", `<i class="fa-solid fa-check"></i>`);
             }
-
-
-
-
             email.value = ""
             password.value = ""
         })
         .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-
-            console.log("Error Code:", error.code);
-            console.log("Error Message:", error.message);
-
             if (errorCode === "auth/email-already-in-use") {
-
                 showpopup("Email already registered.", `<i class="fa-solid fa-xmark"></i>`)
-
+            } else {
+                showpopup("Signup failed!", `<i class="fa-solid fa-xmark"></i>`)
             }
-
             email.value = ""
             password.value = ""
         });
@@ -90,25 +80,19 @@ btn.addEventListener("click", () => {
 
 let btn1 = document.getElementById("check-data")
 
-
 btn1.addEventListener("click", () => {
-
     const email = document.getElementById("email-input");
     const password = document.getElementById("password-input");
 
     let emailError = validateEmail(email.value)
     let passwordError = validatePassword(password.value)
 
-
     if (email.value === "" && password.value === "") {
         document.getElementById("email-error").innerText = emailError
         document.getElementById("email-error").classList.remove("display")
         document.getElementById("password-error").innerText = passwordError
         document.getElementById("password-error").classList.remove("display")
-
         return
-
-
     }
 
     if (emailError) {
@@ -122,52 +106,35 @@ btn1.addEventListener("click", () => {
         return
     }
 
+  
+    isLoggingIn = true;
 
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user)
             if (user) {
                 showpopup("Login successful!", `<i class="fa-solid fa-check"></i>`)
-                   allowRedirect= true
                 email.value = ""
                 password.value = ""
+                
+                // Popup ke baad sukoon se redirect
                 setTimeout(() => {
                     window.location.href = "dashboard.html"
-                 
-                }, 1800);
+                }, 2000);
             }
-
-
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-
+            isLoggingIn = false; 
             if (error.code === "auth/user-not-found") {
                 showpopup("User not found!", `<i class="fa-solid fa-xmark"></i>`)
-                email.value = ""
-                password.value = ""
-            }
-
-            else if (error.code === "auth/invalid-credential") {
+            } else if (error.code === "auth/invalid-credential") {
                 showpopup("Student doesn't exist", `<i class="fa-solid fa-xmark"></i>`)
-                email.value = ""
-                password.value = ""
-            }
-
-            else {
+            } else {
                 showpopup("Login failed!", `<i class="fa-solid fa-xmark"></i>`)
-                email.value = ""
-                password.value = ""
             }
-
-
+            email.value = ""
+            password.value = ""
         });
-
-
-
 })
 
 clearErrorOnInput("email-input", "email-error");
@@ -176,7 +143,6 @@ clearErrorOnInput("password-input", "password-error");
 
 
 function showpopup(mess, errIcon) {
-
     let changePopup = document.getElementById("changeText")
     let erroricon = document.getElementById("error")
 
@@ -192,15 +158,9 @@ function showpopup(mess, errIcon) {
     }
 
     let toast = document.getElementById("toast")
-
-
-
     toast.classList.add("show")
 
     setTimeout(() => {
-
         toast.classList.remove("show")
-
     }, 3000);
-
 }

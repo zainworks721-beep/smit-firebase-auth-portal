@@ -12,6 +12,8 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
+
+
 let logoutBtn = document.getElementById("logoutbtn")
 
 logoutBtn.addEventListener("click", () => {
