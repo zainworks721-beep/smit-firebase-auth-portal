@@ -6,7 +6,7 @@ onAuthStateChanged(auth, (user) => {
         console.log("User Login Hai", user.uid);
 
     } else {
-        window.location.href = "./login.html";
+        window.location.href = "./index.html";
     }
 
 });
