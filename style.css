@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 15px;
 
 }
 
@@ -18,18 +19,11 @@ body {
 
 .card {
 
-    width: 325px;
-
+    width: 435px;
     background: white;
-
-    padding: 17px;
-
+    padding: 20px 25px;
     border-radius: 10px;
-
-
-
     border: 1px solid #DDDDDD;
-
 }
 
 
@@ -45,7 +39,7 @@ body {
 
 .logo-area img {
 
-    width: 95px;
+    width: 130px;
 
     margin-bottom: 4px;
 
@@ -53,10 +47,10 @@ body {
 
 .logo-area p {
 
-    font-size: .875rem;
+    font-size: 19px;
     line-height: 1.25rem;
-
     color: #0a0a0a;
+    font-weight: 400;
 
 }
 
@@ -73,16 +67,15 @@ body {
 
 .tabs button {
     flex: 1;
-    padding: 3px 9px;
+    padding: 8px 9px;
     border: none;
     background: transparent;
     cursor: pointer;
     color: #7F7F7F;
-    ;
     border-radius: 4px;
-    font-size: 11.9px;
-
+    font-size: 14.9px;
 }
+
 
 .tabs .active {
     background: #fff;
@@ -96,20 +89,20 @@ body {
 
 .form-area h3 {
 
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: -.025em;
     font-weight: 600;
-
     margin-bottom: 4px;
     color: #0a0a0a;
 
 }
 
 .desc {
-    font-size: 11.9px;
+    font-size: 16.9;
     color: #777;
     margin-bottom: 16px;
     line-height: 1.4;
+    margin-top: 7px;
 }
 
 
@@ -118,30 +111,45 @@ body {
 label {
 
     display: block;
-
-    font-size: 11.9px;
-
-    margin-top: 10px;
-
+    font-size: 15.9px;
+    margin-top: 30px;
     color: #0a0a0a;
-
 }
+
+.dob label {
+    display: block;
+    font-size: 15.9px;
+    margin-top: 15px;
+    color: #0a0a0a;
+}
+
+.passwordarea label {
+    display: block;
+    font-size: 15.9px;
+    margin-top: 15px;
+    color: #0a0a0a;
+}
+
+
 
 input {
-
     width: 100%;
-
-    padding: 7px;
-
-    margin-top: 4px;
-
+    padding: 13px;
+    margin-top: 7px;
     border: 1px solid #dcdcdc;
-
-    border-radius: 4px;
-
-    font-size: 13px;
-
+    border-radius: 8px;
+    font-size: 16px;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: black;
+}
+
+
 
 input:focus {
 
@@ -157,15 +165,16 @@ input:focus {
 
 .login-btn {
     width: 100%;
-    margin-top: 18px;
+    margin-top: 26px;
     padding: 7px;
     background: #2B4F8C;
     border: none;
     color: #fff;
-    font-weight: 24;
-    font-size: 11px;
+    font-weight: 500;
+    font-size: 14.5px;
     border-radius: 5px;
     cursor: pointer;
+    height: 41px;
 }
 
 .login-btn:hover {
@@ -177,22 +186,20 @@ input:focus {
 
 .teacher {
     text-align: center;
-    font-size: 11px;
+    font-size: 15.7px;
     font-weight: 600;
     color: #0a0a0a;
-    /* dark gray text */
     background-color: #fff;
-    /* white background */
     border: 1px solid #ddd;
-    /* light gray border */
     border-radius: 4px;
     padding: 8px 16px;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-top: 8px;
+    margin-top: 9px;
     width: 100%;
-    font-weight: 400;
-    border-radius: 5px;
+    height: 40px;
+    font-weight: 500;
+    border-radius: 8px;
 
 }
 
@@ -202,48 +209,68 @@ input:focus {
     border-color: #ccc;
 }
 
-.display{
+.display {
     display: none;
 }
 
-.mes{
-color: red;
-margin: 0;
-margin-top: 3px;
-font-size: 12px;
-font-weight: 400;
+.mes {
+    color: #F04462;
+    margin: 0;
+    margin-top: 3px;
+    font-size: 14.5px;
+    font-weight: 400;
 }
 
-.hade{
+.hade {
     display: none;
 }
 
 
 
 
-.toast{
-position: fixed;
-top: 20px;
-left: 50%;
-transform: translateX(-50%);
-background: white;
-padding: 12px 20px;
-border-radius: 8px;
-display: flex;
-align-items: center;
-gap: 10px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-opacity: 0;
-pointer-events: none;
-transition: 0.4s;
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+
+    width: fit-content;
+    max-width: 350px;
+
+    min-width: 120px;
+
 }
 
-.toast i{
-color: green;
-font-size: 20px;
+.error i {
+    color: red;
+    font-size: 25px;
 }
 
-.toast.show{
-opacity: 1;
-pointer-events: auto;
+.sucess i {
+    color: green;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+#changeText {
+    font-size: 16px;
+    font-weight: 700;
+    word-break: break-word;
+overflow-wrap: break-word;
+}
+
+
+.toast.show {
+    opacity: 1;
+    pointer-events: auto;
 }

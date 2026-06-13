@@ -33,23 +33,30 @@
                 <h3 id="form-title">Login</h3>
 
                 <p class="desc" id="form-desc">
-                    Kindly provide the Email and password used during SMIT course registration.
+                Kindly provide the Email and password used during SMIT course registration.
                 </p>
 
                 <label for="cnic-input">Email *</label>
-                <input type="email" id="emai-input">
-                <p class="mes  display"></p>
+                <input type="email" id="email-input">
+                <p class="mes  display" id="email-error"></p>
+
+                <div class="dob">
 
                 <label for="dob-input" id="dob-label" style="display:none;">DOB *</label>
                 <input type="date" id="dob-input" style="display:none;">
-                <p class="mes  display"></p>
+                <p class="mes  display" id="dob-error""></p>
+                </div>
+
+                <div class="passwordarea">
 
                 <label for="password-input">Password *</label>
                 <input type="password" id="password-input">
-                <p class="mes  display"></p>
+                <p class="mes  display" id="password-error"></p>
+
+                </div>
 
                 <button class="login-btn" id="check-data">LOGIN</button>
-                <button class="login-btn" id="save-data" style="display:none;">submit</button>
+                <button class="login-btn" id="save-data" style="display:none;">SUBMIT</button>
 
             </div>
         </div>
@@ -59,8 +66,8 @@
     </div>
 
     <div id="toast" class="toast">
-        <i class="fa-solid fa-circle-check"></i>
-        <span id="changeText">Login successfully</span>
+        <p id="error"></p>
+        <span id="changeText"></span>
     </div>
 
 

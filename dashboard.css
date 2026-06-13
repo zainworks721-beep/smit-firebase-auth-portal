@@ -1,0 +1,126 @@
+/* Reset Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #334155;
+
+}
+
+/* --- Header / Navbar Style --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+/* SMIT Logo Design using Text */
+.logo-area {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.search-nav-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-grow: 0.4;
+    justify-content: center;
+}
+
+/* Search Box styling */
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 16px;
+    padding-right: 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f8fafc;
+    outline: none;
+    color: #64748b;
+}
+
+.search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: #94a3b8;
+}
+
+/* Enrolled Dropdown Button */
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    fill: #94a3b8;
+}
+
+/* Header Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.feedback-btn {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background-color: #1a1a1a;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logout-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+
